@@ -30,8 +30,14 @@ public abstract class AbstractPage {
     }
 
     protected void moveToAndHover(WebElement webElement){
+        webElement.getRect();
         Actions action = new Actions(getDriver());
-        action.moveToElement(webElement);
+        action.moveToElement(webElement).perform();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void waitUntilVisible(WebElement webElement){

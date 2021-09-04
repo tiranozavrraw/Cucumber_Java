@@ -12,10 +12,10 @@ public class MainPage extends AbstractPage {
     @FindBy(className = "b-main-navigation")
     private WebElement mainHeaderMenu;
 
-    @FindBy(className = "//a[.//span[@class='b-main-navigation__text'][contains(text(),\"Автобарахолка\")]]")
+    @FindBy(xpath = "//a[.//span[@class='b-main-navigation__text'][contains(text(),\"Автобарахолка\")]]")
     private WebElement autoMenu;
 
-    @FindBy(className = "//a[.//span[@class='b-main-navigation__text'][contains(text(),\"Дома и квартиры\")]]")
+    @FindBy(xpath = "//a[.//span[@class='b-main-navigation__text'][contains(text(),\"Дома и квартиры\")]]")
     private WebElement houseAndFlatsMenu;
 
     @FindBy(className = "b-main-navigation__dropdown_visible")

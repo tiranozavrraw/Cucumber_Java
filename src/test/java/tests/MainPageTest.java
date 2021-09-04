@@ -1,14 +1,18 @@
 package tests;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.MainPage;
 
-public class MainPageTest extends BaseTest{
+public class MainPageTest {
 
 //    @Test
 //    public void testHoverMainMenuAutoItem(){
@@ -23,6 +27,21 @@ public class MainPageTest extends BaseTest{
 //        mainPage.open();
 //        mainPage.mouseHoverHouseAndFlatsMenu();
 //    }
+    protected WebDriver driver;
+
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+
+
     @Given("Main page is displayed")
     public void openMainPage(){
         MainPage mainPage = new MainPage(driver);
