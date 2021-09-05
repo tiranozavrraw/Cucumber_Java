@@ -31,11 +31,11 @@ public class MainPage extends AbstractPage {
     }
 
     public void mouseHoverAutoMenu(){
-        moveToAndHover(autoMenu);
+        moveToAndHover(autoMenu, headerSubMenu);
     }
 
     public void mouseHoverHouseAndFlatsMenu(){
-        moveToAndHover(houseAndFlatsMenu);
+        moveToAndHover(houseAndFlatsMenu, headerSubMenu);
     }
 
     public WebElement getSubMenu(){

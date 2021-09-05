@@ -29,15 +29,11 @@ public abstract class AbstractPage {
         action.perform();
     }
 
-    protected void moveToAndHover(WebElement webElement){
+    protected void moveToAndHover(WebElement webElement, WebElement expectedToAppear){
         webElement.getRect();
         Actions action = new Actions(getDriver());
         action.moveToElement(webElement).perform();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitUntilVisible(expectedToAppear);
     }
 
     protected void waitUntilVisible(WebElement webElement){
