@@ -14,19 +14,6 @@ import pages.MainPage;
 
 public class MainPageTest {
 
-//    @Test
-//    public void testHoverMainMenuAutoItem(){
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.open();
-//        mainPage.mouseHoverAutoMenu();
-//    }
-//
-//    @Test
-//    public void testHoverMainMenuHouseAndFlatsItem(){
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.open();
-//        mainPage.mouseHoverHouseAndFlatsMenu();
-//    }
     protected WebDriver driver;
 
 
@@ -53,6 +40,13 @@ public class MainPageTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.mouseHoverAutoMenu();
     }
+
+    @When("Mouse hover \"Дома и квартиры\" menu item")
+    public void hoverHouseAndFlatsMenu(){
+        MainPage mainPage = new MainPage(driver);
+        mainPage.mouseHoverHouseAndFlatsMenu();
+    }
+
     @Then("Sub-menu options are displayed")
     public void checkSubMenuIsDisplayed(){
         MainPage mainPage = new MainPage(driver);
@@ -61,11 +55,20 @@ public class MainPageTest {
     }
 
     @And("Contains division by {string}, {string} and {string}")
-    public void checkSubMenuItems(String city, String price, String brand){
+    public void checkAutoSubMenuItems(String city, String price, String brand){
         MainPage mainPage = new MainPage(driver);
         Assertions.assertTrue(mainPage.isSubMenuItemExist(city));
         Assertions.assertTrue(mainPage.isSubMenuItemExist(price));
         Assertions.assertTrue(mainPage.isSubMenuItemExist(brand));
+
+    }
+
+    @And("Contains division by {string}, {string}, {string}")
+    public void checkHouseAndFlatsSubMenuItems(String city, String numberOfRooms, String price){
+        MainPage mainPage = new MainPage(driver);
+        Assertions.assertTrue(mainPage.isSubMenuItemExist(city));
+        Assertions.assertTrue(mainPage.isSubMenuItemExist(numberOfRooms));
+        Assertions.assertTrue(mainPage.isSubMenuItemExist(price));
 
     }
 
